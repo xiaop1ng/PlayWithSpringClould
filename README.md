@@ -49,3 +49,14 @@ Out：
 
 `hi, Spring from port: 8762` or `hi, Spring from port: 8763`
 
+### service-zuul
+
+run with module **service-zuul** -> com.xiaoping.ServerZuulApp
+
+> http://localhost:8769/api-a/hi?name=Spring
+
+> http://localhost:8769/api-b/hi?name=Spring
+
+Out：
+
+`hi, Spring from port: 8762` or `hi, Spring from port: 8763`
