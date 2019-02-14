@@ -21,6 +21,7 @@ ServerA -> ServerB -> ServerC
 会变为：ServerA 先找到服务中心，然后再由服务中心找到 ServerB，之后 ServerB 找到服务中心，最后由服务中心找到 ServerC
 
 ServerA -> 服务中心 -> ServerB
+
 ServerB -> 服务中心 -> ServerC
 
 ### 关于 Netflix

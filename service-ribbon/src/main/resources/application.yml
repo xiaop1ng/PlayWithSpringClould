@@ -1,0 +1,9 @@
+server:
+  port: 8764
+spring:
+  application:
+    name: service-ribbon # 服务与服务之间相互调用一般都是根据这个name
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # 注册中心的地址

@@ -1,9 +1,9 @@
 server:
-  port: 8763
+  port: 8763 # 通过改变端口重新启动一个实例的时候会发现服务中心有 service-hi 的 Availability Zones 会变为 2 此时相当于集群
 
 spring:
   application:
-    name: service-hi # 服务与服务之间相互调用一般都是根据这个name 。
+    name: service-hi # 服务与服务之间相互调用一般都是根据这个name
 
 eureka:
   client:
