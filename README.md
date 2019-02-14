@@ -28,7 +28,7 @@ Out：
 
 ### service-ribbon
 
-run with module **service-ribbon** -> com.xiaoping.ServiceRibbonApp
+run with module **service-ribbon** -> com.xiaoping.ServerRibbonApp
 
 > http://localhost:8764/hi?name=Spring
 
@@ -37,3 +37,15 @@ Out：
 `hi, Spring from port: 8762` or `hi, Spring from port: 8763`
 
 ![结构](http://upload-images.jianshu.io/upload_images/2279594-9f10b702188a129d.png)
+
+
+### service-feign
+
+run with module **service-feign** -> com.xiaoping.ServerFeignApp
+
+> http://localhost:8765/hi?name=Spring
+
+Out：
+
+`hi, Spring from port: 8762` or `hi, Spring from port: 8763`
+
