@@ -4,7 +4,7 @@
 
 ### eureka-server
 
-run with module **eureka-server** -> com.xiaoping.EurrkaServerApp
+run with module **eureka-server** -> com.xiaoping.EurekaServerApp
 
 > http://localhost:8761/
 

@@ -2,14 +2,13 @@ package com.xiaoping;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurekaServer
-public class EurrkaServerApp {
+@EnableEurekaClient
+public class ServerHiApp {
 
     public static void main(String[] args) {
-        SpringApplication.run( EurrkaServerApp.class, args );
+        SpringApplication.run( ServerHiApp.class, args );
     }
-
 }
