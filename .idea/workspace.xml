@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62401022-6d07-4650-a6af-f6000128c8f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-feign/src/main/java/com/xiaoping/service/SchedualServerHi.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-feign/src/main/java/com/xiaoping/service/SchedualServerHi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-feign/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-feign/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-ribbon/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-ribbon/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-ribbon/src/main/java/com/xiaoping/ServerRibbonApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-ribbon/src/main/java/com/xiaoping/ServerRibbonApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-ribbon/src/main/java/com/xiaoping/service/HelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-ribbon/src/main/java/com/xiaoping/service/HelloService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-ribbon/target/classes/com/xiaoping/ServerRibbonApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-ribbon/target/classes/com/xiaoping/ServerRibbonApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-ribbon/target/classes/com/xiaoping/service/HelloService.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-ribbon/target/classes/com/xiaoping/service/HelloService.class" afterDir="false" />
-    </list>
+    <list default="true" id="62401022-6d07-4650-a6af-f6000128c8f7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/eureka-server/target/" />
@@ -97,19 +88,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerFeignApp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service-feign/src/main/java/com/xiaoping/ServerFeignApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-              <folding>
-                <element signature="e#508#509#0" expanded="true" />
-                <element signature="e#575#576#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SchedualServerHi.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service-feign/src/main/java/com/xiaoping/service/SchedualServerHi.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,7 +97,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerHiFallBack.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ServerHiFallBack.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service-feign/src/main/java/com/xiaoping/service/fallback/ServerHiFallBack.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -129,6 +107,15 @@
                 <element signature="e#211#212#0" expanded="true" />
                 <element signature="e#266#267#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hystrix.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/doc/Hystrix.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -182,6 +169,7 @@
         <option value="$PROJECT_DIR$/service-feign/src/main/java/com/xiaoping/service/SchedualServerHi.java" />
         <option value="$PROJECT_DIR$/service-ribbon/src/main/java/com/xiaoping/service/HelloService.java" />
         <option value="$PROJECT_DIR$/service-feign/src/main/java/com/xiaoping/service/fallback/ServerHiFallBack.java" />
+        <option value="$PROJECT_DIR$/doc/Hystrix.md" />
       </list>
     </option>
   </component>
@@ -505,8 +493,8 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32561985" />
-      <window_info anchor="bottom" id="Terminal" weight="0.3289256" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32561985" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3289256" />
       <window_info id="Designer" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289256" />
@@ -760,6 +748,13 @@
             <element signature="e#211#212#0" expanded="true" />
             <element signature="e#266#267#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/Hystrix.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
         </state>
       </provider>
     </entry>
