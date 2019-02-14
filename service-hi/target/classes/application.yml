@@ -1,11 +1,11 @@
 server:
-  port: 8762
+  port: 8763
 
 spring:
   application:
-    name: service-hi
+    name: service-hi # 服务与服务之间相互调用一般都是根据这个name 。
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/  # 注册中心的地址
