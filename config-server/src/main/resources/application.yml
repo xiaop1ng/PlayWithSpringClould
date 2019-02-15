@@ -1,0 +1,21 @@
+server:
+  port: 8770
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # eureka 服务中心地址
+
+spring:
+  application:
+    name: config-server # 服务与服务之间相互调用一般都是根据这个name
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/xiaop1ng/PlayWithSpringClould
+          searchPaths: config
+          username:
+          password:
+
