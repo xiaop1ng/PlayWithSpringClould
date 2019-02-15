@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HiController {
 
-    @Value("${foo}")
-    private String foo;
+    @Value("${version}")
+    private String version;
 
-    @RequestMapping("/hi")
-    public String hi(){
-        return foo;
+    @RequestMapping("/version")
+    public String version(){
+        return version;
     }
 
 }

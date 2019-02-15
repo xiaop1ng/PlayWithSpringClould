@@ -60,3 +60,36 @@ run with module **service-zuul** -> com.xiaoping.ServerZuulApp
 Out：
 
 `hi, Spring from port: 8762` or `hi, Spring from port: 8763`
+
+### config-server
+
+run with module **config-server** -> com.xiaoping.ConfigServerApp
+
+> http://localhost:8770/version/dev
+
+Out:
+
+```
+{
+  "name": "version",
+  "profiles": [
+    "dev"
+  ],
+  "label": null,
+  "version": "b21bb51a2609b599de933804bcc0de8a06f4d7cd",
+  "state": null,
+  "propertySources": [
+
+  ]
+}
+```
+
+### config-client
+
+run with module **config-client** -> com.xiaoping.ConfigClientApp
+
+> http://localhost:8771/version
+
+Out:
+
+`1.0.0`
