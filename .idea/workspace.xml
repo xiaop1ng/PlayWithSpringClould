@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62401022-6d07-4650-a6af-f6000128c8f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/config-client/src/main/java/com/xiaoping/ConfigClientApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/config-client/src/main/java/com/xiaoping/ConfigClientApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-client/src/main/java/com/xiaoping/controller/HiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/config-client/src/main/java/com/xiaoping/controller/HiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config-client-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/config-client-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,20 +28,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="69">
               <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConfigServerApp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config-server/src/main/java/com/xiaoping/ConfigServerApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#211#212#0" expanded="true" />
-                <element signature="e#285#286#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -84,11 +68,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config-client-dev.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config-client-dev.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/config-client-dev.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="15" selection-start-column="15" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="104" column="6" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -184,7 +177,6 @@
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/config-server/pom.xml" />
         <option value="$PROJECT_DIR$/config-server/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/config-server/src/main/java/com/xiaoping/ConfigServerApp.java" />
         <option value="$PROJECT_DIR$/config-client/src/main/resources/bootstrap.yml" />
         <option value="$PROJECT_DIR$/config-client/pom.xml" />
@@ -193,6 +185,7 @@
         <option value="$PROJECT_DIR$/config-client/src/main/java/com/xiaoping/ConfigClientApp.java" />
         <option value="$PROJECT_DIR$/config-client/src/main/java/com/xiaoping/controller/HiController.java" />
         <option value="$PROJECT_DIR$/config/config-client-dev.properties" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -737,13 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="94" column="7" selection-start-line="94" selection-start-column="7" selection-end-line="94" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config-server/src/main/java/com/xiaoping/ConfigServerApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -824,6 +810,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="15" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="104" column="6" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
         </state>
       </provider>
     </entry>

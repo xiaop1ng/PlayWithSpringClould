@@ -93,3 +93,13 @@ run with module **config-client** -> com.xiaoping.ConfigClientApp
 Out:
 
 `1.0.0`
+
+更新配置后 POST 请求配置好的 /actuator/bus-refresh，可以读到最新的配置信息
+
+> [POST] http://localhost:8771/actuator/bus-refresh
+
+> http://localhost:8771/version
+
+Out:
+
+`1.0.1`
