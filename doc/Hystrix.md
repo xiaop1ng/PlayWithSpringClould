@@ -9,3 +9,26 @@
 较底层的服务如果出现故障，会导致连锁故障。当对特定的服务的调用的不可用达到一个阀值（Hystric 是5秒20次） 断路器将会被打开。
 
 断路打开后，可用避免连锁故障，fallback方法可以直接返回一个固定值。
+
+
+### 断路器监控 Hystrix Dashboard
+
+依赖：
+
+```
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+</dependency>
+```
+
+### 断路器聚合监控 Hystrix Turbine
+
+依赖：
+
+```
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-turbine</artifactId>
+</dependency>
+```
