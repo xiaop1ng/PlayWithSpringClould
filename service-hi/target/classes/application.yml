@@ -4,7 +4,10 @@ server:
 spring:
   application:
     name: service-hi # 服务与服务之间相互调用一般都是根据这个name
-
+  zipkin:
+    base-url: http://localhost:9411 # 链路追踪服务的地址
+    sender:
+      type: web # 配置 zipkin 的通讯方式
 eureka:
   client:
     serviceUrl:

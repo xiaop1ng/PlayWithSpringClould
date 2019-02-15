@@ -103,3 +103,9 @@ Out:
 Out:
 
 `1.0.1`
+
+### server-zipkin
+
+java -jar zipkin-server-2.12.1-exec.jar
+
+> http://localhost:9411
