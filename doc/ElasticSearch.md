@@ -22,5 +22,269 @@ Relational DB -> Databases -> Tables -> Rows -> Columns
 Elasticsearch -> Indices   -> Types  -> Documents -> Fields
 ```
 
-Elasticsearch集群可以包含多个索引(indices)（数据库），每一个索引可以包含多个类型(types)（表），每一个类型包含多个文档(documents)（行），然后每个文档包含多个字段(Fields)（列）。
+Elasticsearch 集群可以包含多个索引(indices)（数据库），每一个索引可以包含多个类型(types)（表），每一个类型包含多个文档(documents)（行），然后每个文档包含多个字段(Fields)（列）。
+
+### RESTful
+
+为了创建员工目录，我们将进行如下操作：
+- 为每个员工的文档(document)建立索引，每个文档包含了相应员工的所有信息。
+- 每个文档的类型为employee。
+- employee类型归属于索引megacorp。
+- megacorp索引存储在Elasticsearch集群中
+
+```
+PUT http://localhost:9200/megacorp/employee/1
+
+req:
+{
+    "first_name" : "John",
+    "last_name" :  "Smith",
+    "age" :        25,
+    "about" :      "I love to go rock climbing",
+    "interests": [ "sports", "music" ]
+}
+
+res:
+{
+    "_index": "megacorp",
+    "_type": "employee",
+    "_id": "1",
+    "_version": 1,
+    "result": "created",
+    "_shards": {
+        "total": 2,
+        "successful": 1,
+        "failed": 0
+    },
+    "_seq_no": 0,
+    "_primary_term": 1
+}
+```
+
+
+**检索文档**
+```
+GET http://localhost:9200/megacorp/employee/1
+
+res:
+{
+    "_index": "megacorp",
+    "_type": "employee",
+    "_id": "1",
+    "_version": 1,
+    "_seq_no": 0,
+    "_primary_term": 1,
+    "found": true,
+    "_source": {
+        "first_name": "John",
+        "last_name": "Smith",
+        "age": 25,
+        "about": "I love to go rock climbing",
+        "interests": [
+            "sports",
+            "music"
+        ]
+    }
+}
+```
+
+**删除文档**
+```
+DELETE http://localhost:9200/megacorp/employee/2
+
+res:
+{
+    "_index": "megacorp",
+    "_type": "employee",
+    "_id": "2",
+    "_version": 2,
+    "result": "deleted",
+    "_shards": {
+        "total": 2,
+        "successful": 1,
+        "failed": 0
+    },
+    "_seq_no": 1,
+    "_primary_term": 1
+}
+```
+
+**简单搜索**
+
+使用megacorp索引和employee类型，但是我们在结尾使用关键字_search来取代原来的文档ID。响应内容的hits数组中包含了我们所有的三个文档。默认情况下搜索会返回前10个结果。
+
+```
+GET http://localhost:9200/megacorp/employee/_search
+
+res:
+{
+    "took": 15,
+    "timed_out": false,
+    "_shards": {
+        "total": 5,
+        "successful": 5,
+        "skipped": 0,
+        "failed": 0
+    },
+    "hits": {
+        "total": 2,
+        "max_score": 1,
+        "hits": [
+            {
+                "_index": "megacorp",
+                "_type": "employee",
+                "_id": "1",
+                "_score": 1,
+                "_source": {
+                    "first_name": "John",
+                    "last_name": "Smith",
+                    "age": 25,
+                    "about": "I love to go rock climbing",
+                    "interests": [
+                        "sports",
+                        "music"
+                    ]
+                }
+            },
+            {
+                "_index": "megacorp",
+                "_type": "employee",
+                "_id": "3",
+                "_score": 1,
+                "_source": {
+                    "first_name": "Douglas",
+                    "last_name": "Fir",
+                    "age": 35,
+                    "about": "I like to build cabinets",
+                    "interests": [
+                        "forestry"
+                    ]
+                }
+            }
+        ]
+    }
+}
+```
+
+简单带条件搜索
+
+> http://localhost:9200/megacorp/employee/_search?q=last_name:Smith
+
+短语搜索
+
+```
+GET http://localhost:9200/megacorp/employee/_search
+
+req:
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    }
+}
+
+res:
+{
+    "took": 6,
+    "timed_out": false,
+    "_shards": {
+        "total": 5,
+        "successful": 5,
+        "skipped": 0,
+        "failed": 0
+    },
+    "hits": {
+        "total": 1,
+        "max_score": 0.5753642,
+        "hits": [
+            {
+                "_index": "megacorp",
+                "_type": "employee",
+                "_id": "1",
+                "_score": 0.5753642,
+                "_source": {
+                    "first_name": "John",
+                    "last_name": "Smith",
+                    "age": 25,
+                    "about": "I love to go rock climbing",
+                    "interests": [
+                        "sports",
+                        "music"
+                    ]
+                }
+            }
+        ]
+    }
+}
+```
+
+高亮搜索
+```
+GET http://localhost:9200/megacorp/employee/_search
+
+req:
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    },
+    "highlight": {
+        "fields" : {
+            "about" : {}
+        }
+    }
+}
+
+res:
+{
+    "took": 166,
+    "timed_out": false,
+    "_shards": {
+        "total": 5,
+        "successful": 5,
+        "skipped": 0,
+        "failed": 0
+    },
+    "hits": {
+        "total": 1,
+        "max_score": 0.5753642,
+        "hits": [
+            {
+                "_index": "megacorp",
+                "_type": "employee",
+                "_id": "1",
+                "_score": 0.5753642,
+                "_source": {
+                    "first_name": "John",
+                    "last_name": "Smith",
+                    "age": 25,
+                    "about": "I love to go rock climbing",
+                    "interests": [
+                        "sports",
+                        "music"
+                    ]
+                },
+                "highlight": {
+                    "about": [
+                        "I love to go <em>rock</em> <em>climbing</em>"
+                    ]
+                }
+            }
+        ]
+    }
+}
+```
+
+### 聚合、推荐、定位、渗透、模糊以及部分匹配等
+
+### 分布式特性
+Elasticsearch致力于隐藏分布式系统的复杂性。以下这些操作都是在底层自动完成的：
+
+- 将你的文档分区到不同的容器或者分片(shards)中，它们可以存在于一个或多个节点中。
+- 将分片均匀的分配到各个节点，对索引和搜索做负载均衡。
+- 冗余每一个分片，防止硬件故障造成的数据丢失。
+- 将集群中任意一个节点上的请求路由到相应数据所在的节点。
+- 无论是增加节点，还是移除节点，分片都可以做到无缝的扩展和迁移。
 
