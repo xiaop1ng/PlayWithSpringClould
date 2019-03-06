@@ -288,3 +288,69 @@ Elasticsearch致力于隐藏分布式系统的复杂性。以下这些操作都�
 - 将集群中任意一个节点上的请求路由到相应数据所在的节点。
 - 无论是增加节点，还是移除节点，分片都可以做到无缝的扩展和迁移。
 
+### 分布式集群
+
+一个节点(node)就是一个Elasticsearch实例，而一个集群(cluster)由一个或多个节点组成，它们具有相同的cluster.name，它们协同工作，分享数据和负载。当加入新的节点或者删除一个节点时，集群就会感知到并平衡数据。
+
+**集群健康**：
+```
+GET http://localhost:9200/_cluster/health
+
+res:
+{
+    "cluster_name": "elasticsearch",
+    "status": "yellow",
+    "timed_out": false,
+    "number_of_nodes": 1,
+    "number_of_data_nodes": 1,
+    "active_primary_shards": 6,
+    "active_shards": 6,
+    "relocating_shards": 0,
+    "initializing_shards": 0,
+    "unassigned_shards": 5,
+    "delayed_unassigned_shards": 0,
+    "number_of_pending_tasks": 0,
+    "number_of_in_flight_fetch": 0,
+    "task_max_waiting_in_queue_millis": 0,
+    "active_shards_percent_as_number": 54.54545454545454
+}
+```
+
+这里的 `status`:
+- green 表意所有主要分片和复制分片都可用
+- yellow 所有主要分片可用，但不是所有复制分片都可用
+- red 不是所有的主要分片都可用
+
+### 文档
+
+**文档元数据**
+```
+GET http://localhost:9200/megacorp/employee/1
+
+res:
+{
+    "_index": "megacorp",   <文档存储的地方，索引（index）类似于关系型数据库里的“数据库”>
+    "_type": "employee",    <文档代表对象的类，类型（type）类似数据库里的“表”>
+    "_id": "1",             <文档的唯一标识>
+    "_version": 1,
+    "_seq_no": 0,
+    "_primary_term": 1,
+    "found": true,
+    "_source": {
+        "first_name": "John",
+        "last_name": "Smith",
+        "age": 25,
+        "about": "I love to go rock climbing",
+        "interests": [
+            "sports",
+            "music"
+        ]
+    }
+}
+```
+
+提供自己的 _id
+> PUT /{index}/{type}/{id}
+
+由 es 生成 _id，这时由 es 提供一个 uuid
+> POST /{index}/{type}
