@@ -354,3 +354,30 @@ res:
 
 由 es 生成 _id，这时由 es 提供一个 uuid
 > POST /{index}/{type}
+
+获取想要得部分数据
+> GET /{index}/{type}/{id}/_source
+
+判断是否存在数据，`HEAD`请求不会返回响应体，只有`HTTP`头
+> HEAD /{index}/{type}/{id}
+
+更新全文文档，响应中 _version 会增加，在内部，Elasticsearch已经标记旧文档为删除并添加了一个完整的新文档。旧版本文档不会立即消失，但你也不能去访问它。Elasticsearch会在你继续索引更多数据时清理被删除的文档。
+> PUT /{index}/{type}/{id}
+
+删除文档
+> DELETE /{index}/{type}/{id}
+
+局部更新文档
+> POST /{index/{type}/{id}/_update
+
+```
+POST /website/blog/1/_update
+
+req:
+{
+   "doc" : {
+      "tags" : [ "testing" ], <doc 字段里的即是需要局部更新的部分>
+      "views": 0
+   }
+}
+```
