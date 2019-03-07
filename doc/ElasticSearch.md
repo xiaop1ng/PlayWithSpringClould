@@ -510,4 +510,69 @@ res:
 
 ## 倒排索引
 
+ElasticSearch 使用一种叫做倒序索引（inverted index）的结构来做快速的全文索引。倒序索引由在文档中出现的唯一的单词列表，以及对于每个单词在文档中的位置组成。
+
+为了创建倒排索引，我们首先切分文档的字段为单独的单词（词（terms）或者表征（tokens）），这个标记化和标准化的过程叫做分词（analysis）。
+然后这个工作是分析器（analyzer）完成的。一个分析器（analyzer）是一个包装了三个功能的工具：
+
+1. 字符过滤器（character filter）
+2. 分词器（tokenizer）
+3. 标记过滤（token filters）
+
+**创建包含 mapping 的索引**
+```
+PUT http://localhost:9200/gb
+
+req:
+{
+  "mappings": {
+    "tweet" : {
+      "properties" : {
+        "tweet" : {
+          "type" :    "text",
+          "analyzer": "english"
+        },
+        "date" : {
+          "type" :   "date"
+        },
+        "name" : {
+          "type" :   "text"
+        },
+        "user_id" : {
+          "type" :   "long"
+        }
+      }
+    }
+  }
+}
+
+res:
+{
+    "acknowledged": true,
+    "shards_acknowledged": true,
+    "index": "gb"
+}
+```
+
+## Query DSL(Query Domain Specific Language) & Filter DSL(Filter Domain Specific Language)
+
+
+事实上我们可以使用两种结构化语句： 结构化查询（Query DSL）和结构化过滤（Filter DSL）。 查询与过滤语句非常相似，但是它们由于使用目的不同而稍有差异。
+
+一条过滤语句会询问每个文档的字段值是否包含着特定值：
+- created 的日期范围是否在 2013 到 2014 ?
+- status 字段中是否包含单词 "published" ?
+- lat_lon 字段中的地理位置与目标点相距是否不超过10km ?
+
+一条查询语句与过滤语句相似，但问法不同：
+
+查询语句会询问每个文档的字段值与特定值的匹配程度如何？
+
+查询语句的典型用法是为了找到文档：
+- 查找与 full text search 这个词语最佳匹配的文档
+- 查找包含单词 run ，但是也包含runs, running, jog 或 sprint的文档
+- 同时包含着 quick, brown 和 fox --- 单词间离得越近，该文档的相关性越高
+- 标识着 lucene, search 或 java --- 标识词越多，该文档的相关性越高
+
+原则上来说，使用查询语句做全文本搜索或其他需要进行相关性评分的时候，剩下的全部用过滤语句
 
