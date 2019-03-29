@@ -26,7 +26,9 @@ Elasticsearch 集群可以包含多个索引(indices)（数据库），每一个
 
 ## RESTful
 
-为了创建员工目录，我们将进行如下操作：
+> <HTTP Verb> /<Index>/<Type>/<ID>
+
+为了创建员工目录，我们将进行如下操作：（基于 es v6.6.1）
 - 为每个员工的文档(document)建立索引，每个文档包含了相应员工的所有信息。
 - 每个文档的类型为employee。
 - employee类型归属于索引megacorp。
